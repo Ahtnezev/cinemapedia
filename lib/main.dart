@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:cinemapedia/config/router/app_router.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:cinemapedia/config/theme/app_theme.dart';
 
 /* Importaciones
@@ -10,7 +12,11 @@ import 'package:cinemapedia/config/theme/app_theme.dart';
  * 4. Nuestras dependencias
 */
 
-void main() {
+Future<void> main() async {
+
+  //! leemos variables de entorno
+  await dotenv.load(fileName: '.env');
+
   runApp(const MyApp());
 }
 
