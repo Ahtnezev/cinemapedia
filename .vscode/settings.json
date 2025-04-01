@@ -1,6 +1,6 @@
 {
-    "workbench.colorTheme": "Evro Dark",
+    "workbench.colorTheme": "Dimex",
     "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "theme",
+    "workbench.iconTheme": "charmed-icons",
     "editor.fontWeight": "450"
 }
