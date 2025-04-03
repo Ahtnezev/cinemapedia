@@ -42,17 +42,19 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     return Column(
       children: [
 
-        CustomAppbar(),
+        const CustomAppbar(),
 
-        Expanded(
-          child: ListView.builder(
-            itemCount: nowPlayinMovies.length,
-            itemBuilder: (context, index) {
-              final movie = nowPlayinMovies[index];
-              return ListTile(title: Text(movie.title));
-            },
-          ),
-        ),
+        MoviesSlideshow(movies: nowPlayinMovies)
+
+        // Expanded(
+        //   child: ListView.builder(
+        //     itemCount: nowPlayinMovies.length,
+        //     itemBuilder: (context, index) {
+        //       final movie = nowPlayinMovies[index];
+        //       return ListTile(title: Text(movie.title));
+        //     },
+        //   ),
+        // ),
 
 
       ],
