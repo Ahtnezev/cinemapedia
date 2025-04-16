@@ -1,9 +1,9 @@
 
 
 // llama al datasource, de datasource a los metodos
-import 'package:cinemapedia/config/domain/datasources/movies_datasource.dart';
-import 'package:cinemapedia/config/domain/entities/movie.dart';
-import 'package:cinemapedia/config/domain/repositories/movies_repository.dart';
+import 'package:cinemapedia/domain/datasources/movies_datasource.dart';
+import 'package:cinemapedia/domain/entities/movie.dart';
+import 'package:cinemapedia/domain/repositories/movies_repository.dart';
 
 class MovieRepositoryImpl extends MoviesRepository {
 

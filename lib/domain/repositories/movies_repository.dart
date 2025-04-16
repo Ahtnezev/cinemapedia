@@ -1,5 +1,5 @@
 
-import 'package:cinemapedia/config/domain/entities/movie.dart';
+import 'package:cinemapedia/domain/entities/movie.dart';
 
 //! Mandan a llamar el datasource
 abstract class MoviesRepository {

@@ -1,6 +1,6 @@
 // fucionalidad del mapper: Unica mision leer diferentes modelos y crear entidad
 
-import 'package:cinemapedia/config/domain/entities/movie.dart';
+import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/infrastructure/models/moviedb/movie_moviedb.dart';
 
 class MovieMapper {

@@ -1,6 +1,6 @@
 
 //! No queremos instancias de esta clase
-import 'package:cinemapedia/config/domain/entities/movie.dart';
+import 'package:cinemapedia/domain/entities/movie.dart';
 
 //! Origenes de datos
 abstract class MoviesDatasource {
