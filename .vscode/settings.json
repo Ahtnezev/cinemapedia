@@ -1,6 +1,7 @@
 {
-    "workbench.colorTheme": "Dark Modern+",
+    "workbench.colorTheme": "Candle Theme",
     "workbench.productIconTheme": "icons-carbon",
     "workbench.iconTheme": "charmed-icons",
-    "editor.fontWeight": "450"
+    "editor.fontWeight": "450",
+    "editor.letterSpacing": -0.25,
 }
