@@ -19,19 +19,35 @@ class MoviedbDatasource extends MoviesDatasource {
     ),
   );
 
+  List<Movie> _jsonToMovies( Map<String, dynamic> json ) {
+      final movieDBResponse = MovieDBResponse.fromJson(json);
+
+      final List<Movie> movies =
+          movieDBResponse.results
+              .where((moviedb) => moviedb.posterPath != 'no-poster')
+              .map((moviedb) => MovieMapper.movieDBToEntity(moviedb))
+              .toList();
+
+      return movies;
+  }
+
   @override
   Future<List<Movie>> getNowPlaying({int page = 1}) async {
     final response = await dio.get('/movie/now_playing', queryParameters: {
       'page': page
     });
-    final movieDBResponse = MovieDBResponse.fromJson(response.data);
+    
+    return _jsonToMovies(response.data);
+  }
+  
+  @override
+  Future<List<Movie>> getPopular({int page = 1}) async {
+      // segun el api nos devuelve las mismas peliculas xD pero si queremos ver otras diferentes podremos usar por ej.: /upcoming
+      // https://developer.themoviedb.org/reference/movie-popular-list
+      final response = await dio.get('/movie/popular', queryParameters: {
+        'page': page
+      });
 
-    final List<Movie> movies =
-        movieDBResponse.results
-            .where((moviedb) => moviedb.posterPath != 'no-poster')
-            .map((moviedb) => MovieMapper.movieDBToEntity(moviedb))
-            .toList();
-
-    return movies;
+    return _jsonToMovies(response.data);
   }
 }

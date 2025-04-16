@@ -7,4 +7,7 @@ abstract class MoviesDatasource {
   // Lista de tipo Movie
   Future<List<Movie>> getNowPlaying({int page = 1});
 
+  // Listado de peliculas populares
+  Future<List<Movie>> getPopular({int page = 1});
+
 }

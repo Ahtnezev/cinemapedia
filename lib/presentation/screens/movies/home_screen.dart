@@ -32,6 +32,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
     // puente, sino colocamos el `.notifier` estaremos recibiendo el estado
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+    ref.read(popularMoviesProvider.notifier).loadNextPage();
   }
 
   @override
@@ -39,6 +40,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
     final nowPlayinMovies = ref.watch(nowPlayingMoviesProvider);
     final slideShowMovies = ref.watch( moviesSlideshowProvider );
+    final popularMovies = ref.watch( popularMoviesProvider );
 
     if (slideShowMovies.isEmpty) {
       return CircularProgressIndicator();
@@ -84,10 +86,10 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 ),
             
                 MovieHorizontalListview(
-                  movies: nowPlayinMovies,
+                  movies: popularMovies,
                   title: 'Populares',
                   // subTitle: '',
-                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                  loadNextPage: () => ref.read(popularMoviesProvider.notifier).loadNextPage()
                 ),
             
                 MovieHorizontalListview(

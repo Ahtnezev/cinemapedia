@@ -6,4 +6,7 @@ abstract class MoviesRepository {
 
   Future<List<Movie>> getNowPlaying({int page = 1});
 
+  // Al momento de modicar nuestro datasource (lib/domain/datasources/...) tenemos que agregarlo en nuestro repository
+  Future<List<Movie>> getPopular({int page = 1});
+
 }

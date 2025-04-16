@@ -6,9 +6,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //! cuando queramos consultar aquellas peliculas usare este provider
 // clase que lo controla o que notifica es el MoviesNotifer y la data/state es el listado de Movie 
 final nowPlayingMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>((ref) {
-
   final fetchMoreMovies = ref.watch( movieRepositoryProvider ).getNowPlaying;
+  return MoviesNotifier(
+    fetchMoreMovies: fetchMoreMovies
+  );
+});
 
+final popularMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>((ref) {
+  final fetchMoreMovies = ref.watch( movieRepositoryProvider ).getPopular;
   return MoviesNotifier(
     fetchMoreMovies: fetchMoreMovies
   );

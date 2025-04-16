@@ -1,7 +1,7 @@
 {
     "workbench.colorTheme": "Dark Modern+",
     "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "vsc-jetbrains-icons-enhanced",
+    "workbench.iconTheme": "sakai-icons-expanded",
     "editor.fontWeight": "450",
     "editor.letterSpacing": -0.25,
 }
