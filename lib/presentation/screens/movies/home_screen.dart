@@ -44,35 +44,80 @@ class _HomeViewState extends ConsumerState<_HomeView> {
       return CircularProgressIndicator();
     }
 
-    return Column(
-      children: [
 
-        const CustomAppbar(),
+    //* CustomScrollView -> si tenemos varios widgets y hace desbordamiento con este queda al 100 y pasadito
+    //* esto lo hacemos para poder tener control del scroll y mostrar el "header"
+    return CustomScrollView(
+      slivers: [
 
-        MoviesSlideshow(movies: slideShowMovies),
+        const SliverAppBar(
+          floating: true,
+          flexibleSpace: FlexibleSpaceBar(
+            title: CustomAppbar(),
+          ),
+        ),
 
-        MovieHorizontalListview(
-          movies: nowPlayinMovies,
-          title: 'En Cines',
-          subTitle: 'Lunes 20',
-          loadNextPage: () {
-            // print('llamdo del padre');
-            ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+        SliverList(delegate: SliverChildBuilderDelegate( 
+          (context, index) {
+            return Column(
+              children: [
+            
+                // const CustomAppbar(),
+            
+                MoviesSlideshow(movies: slideShowMovies),
+            
+                MovieHorizontalListview(
+                  movies: nowPlayinMovies,
+                  title: 'En Cines',
+                  subTitle: 'Lunes 20',
+                  loadNextPage: () {
+                    // print('llamdo del padre');
+                    ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+                  },
+                ),
+            
+                MovieHorizontalListview(
+                  movies: nowPlayinMovies,
+                  title: 'Próximamente',
+                  subTitle: 'En este mes',
+                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                ),
+            
+                MovieHorizontalListview(
+                  movies: nowPlayinMovies,
+                  title: 'Populares',
+                  // subTitle: '',
+                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                ),
+            
+                MovieHorizontalListview(
+                  movies: nowPlayinMovies,
+                  title: 'Mejor calificadas',
+                  subTitle: 'Desde siempre',
+                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                ),
+            
+                SizedBox(height: 20),
+            
+            
+                // Expanded(
+                //   child: ListView.builder(
+                //     itemCount: nowPlayinMovies.length,
+                //     itemBuilder: (context, index) {
+                //       final movie = nowPlayinMovies[index];
+                //       return ListTile(title: Text(movie.title));
+                //     },
+                //   ),
+                // ),
+            
+            
+              ],
+            );
           },
-        )
+          childCount: 1 //> numero de veces que se repetira, creo xd
+        ))
 
-        // Expanded(
-        //   child: ListView.builder(
-        //     itemCount: nowPlayinMovies.length,
-        //     itemBuilder: (context, index) {
-        //       final movie = nowPlayinMovies[index];
-        //       return ListTile(title: Text(movie.title));
-        //     },
-        //   ),
-        // ),
-
-
-      ],
+      ]
     );
   }
 }
