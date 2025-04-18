@@ -33,6 +33,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     // puente, sino colocamos el `.notifier` estaremos recibiendo el estado
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
     ref.read(popularMoviesProvider.notifier).loadNextPage();
+    ref.read(upcomingMoviesProvider.notifier).loadNextPage();
+    ref.read(topRatedMoviesProvider.notifier).loadNextPage();
   }
 
   @override
@@ -41,6 +43,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final nowPlayinMovies = ref.watch(nowPlayingMoviesProvider);
     final slideShowMovies = ref.watch( moviesSlideshowProvider );
     final popularMovies = ref.watch( popularMoviesProvider );
+    final upcomingMovies = ref.watch( upcomingMoviesProvider );
+    final topRatedMovies = ref.watch( topRatedMoviesProvider );
 
     if (slideShowMovies.isEmpty) {
       return CircularProgressIndicator();
@@ -79,10 +83,10 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 ),
             
                 MovieHorizontalListview(
-                  movies: nowPlayinMovies,
+                  movies: upcomingMovies,
                   title: 'Próximamente',
                   subTitle: 'En este mes',
-                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                  loadNextPage: () => ref.read(upcomingMoviesProvider.notifier).loadNextPage()
                 ),
             
                 MovieHorizontalListview(
@@ -93,10 +97,10 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 ),
             
                 MovieHorizontalListview(
-                  movies: nowPlayinMovies,
+                  movies: topRatedMovies,
                   title: 'Mejor calificadas',
                   subTitle: 'Desde siempre',
-                  loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage()
+                  loadNextPage: () => ref.read(topRatedMoviesProvider.notifier).loadNextPage()
                 ),
             
                 SizedBox(height: 20),

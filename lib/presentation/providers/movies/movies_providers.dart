@@ -19,6 +19,17 @@ final popularMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>
   );
 });
 
+//* tarea
+final upcomingMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>( (ref) {
+  final fetchMoreMovies = ref.watch( movieRepositoryProvider ).getUpcoming;
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+final topRatedMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>( (ref) {
+  final fetchMoreMovies = ref.watch( movieRepositoryProvider ).getTopRated;
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
 // para saber que funcion debo de recibir
 typedef MovieCallBack = Future<List<Movie>> Function({int page});
 
