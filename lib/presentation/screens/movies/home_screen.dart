@@ -40,8 +40,12 @@ class _HomeViewState extends ConsumerState<_HomeView> {
   @override
   Widget build(BuildContext context) {
 
-    final nowPlayinMovies = ref.watch(nowPlayingMoviesProvider);
+    final initialLoading = ref.watch(initialLoadingProvider);
+
+    if (initialLoading) return const FullScreenLoader();
+
     final slideShowMovies = ref.watch( moviesSlideshowProvider );
+    final nowPlayinMovies = ref.watch(nowPlayingMoviesProvider);
     final popularMovies = ref.watch( popularMoviesProvider );
     final upcomingMovies = ref.watch( upcomingMoviesProvider );
     final topRatedMovies = ref.watch( topRatedMoviesProvider );
@@ -51,6 +55,9 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     }
 
 
+    //> podemos agregar este widget y sin necesidad del loader mostrar hasta que se carguen los daots
+    // >     return Visibility(
+    // > visible: !initialLoading,
     //* CustomScrollView -> si tenemos varios widgets y hace desbordamiento con este queda al 100 y pasadito
     //* esto lo hacemos para poder tener control del scroll y mostrar el "header"
     return CustomScrollView(

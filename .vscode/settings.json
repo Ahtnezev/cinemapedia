@@ -1,7 +1,13 @@
 {
     "workbench.colorTheme": "wizza dark",
     "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "sakai-icons-expanded",
+    "workbench.iconTheme": "charmed-icons",
     "editor.fontWeight": "400",
     "editor.letterSpacing": -0.25,
+    "terminal.integrated.fontWeight": "400",
+    "terminal.integrated.fontWeightBold": "400",
+    "terminal.integrated.fontFamily": "Fantasque Sans MonoX, JetBrains Mono",
+    "terminal.integrated.fontSize": 12,
+    // "terminal.integrated.letterSpacing": -1,
+    "debug.console.fontSize": 13,
 }
