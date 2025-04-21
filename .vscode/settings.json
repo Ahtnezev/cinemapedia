@@ -1,9 +1,9 @@
 {
-    "workbench.colorTheme": "wizza dark",
+    "workbench.colorTheme": "Int UI Dark",
     "workbench.productIconTheme": "icons-carbon",
     "workbench.iconTheme": "charmed-icons",
-    "editor.fontWeight": "400",
-    "editor.letterSpacing": -0.25,
+    "editor.fontWeight": "500",
+    "editor.letterSpacing": -0.35,
     "terminal.integrated.fontWeight": "400",
     "terminal.integrated.fontWeightBold": "400",
     "terminal.integrated.fontFamily": "Fantasque Sans MonoX, JetBrains Mono",
