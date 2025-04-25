@@ -88,7 +88,7 @@ class MovieDetails {
     Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
-        "belongs_to_collection": belongsToCollection.toJson(),
+        "belongs_to_collection": belongsToCollection!.toJson(),
         "budget": budget,
         "genres": List<dynamic>.from(genres.map((x) => x.toJson())),
         "homepage": homepage,
@@ -165,7 +165,7 @@ class Genre {
 
 class ProductionCompany {
     final int id;
-    final String logoPath;
+    final String? logoPath;
     final String name;
     final String originCountry;
 
